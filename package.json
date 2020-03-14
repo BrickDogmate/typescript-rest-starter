@@ -10,7 +10,8 @@
     "clean": "rimraf --no-glob dist",
     "tsc": "tsc",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "test": "NODE_ENV=test PORT=30000 mocha -r ts-node/register -r dotenv/config dotenv_config_path=.env.test 'test/*Test.ts' --timeout 30000 --exit"
+    "test": "NODE_ENV=test PORT=30000 mocha -r ts-node/register -r dotenv/config dotenv_config_path=.env.test 'test/*Test.ts' --timeout 30000 --exit",
+    "test:db": "NODE_ENV=test PORT=30000 DB_LOGGING=true mocha -r ts-node/register -r dotenv/config dotenv_config_path=.env.test 'test/*Test.ts' --timeout 30000 --exit"
   },
   "author": "Brick <brick@dogmate.co.kr>",
   "license": "MIT",

@@ -5,6 +5,7 @@ const dbPort: number = +process.env.DB_PORT || 3306;
 const dbUser: string = process.env.DB_USER || 'root';
 const dbPass: string = process.env.DB_PASS || '';
 const dbName: string = process.env.DB_NAME || '';
+const dbLogging: boolean = process.env.DB_LOGGING === 'true'
 
 export function connDb(): Promise<Connection> {
   return createConnection({
@@ -18,7 +19,7 @@ export function connDb(): Promise<Connection> {
     entities: [
       `${__dirname}/**/*Entity.*`,
     ],
-    logging: true,
+    logging: dbLogging,
     bigNumberStrings: false,
   });
 }
