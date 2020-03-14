@@ -45,10 +45,19 @@ describe('helloTest', () => {
   it('hello name 요청 : 잘못된 이름', (done) => {
     agent.get('/api/hello/*')
       .end((err, res) => {
-        console.log(res.status)
-        console.log(res.body)
         expect(res.body.error).to.eq(ERROR_MESSAGE.WRONG_USER_NAME);
         expect(res).to.have.status(406);
+        done();
+      });
+  });
+
+  it('hello name 요청 : _ 혹은 space 허용되는지 확인', (done) => {
+    agent.get('/api/hello/LEE JI EUN_')
+      .end((err, res) => {
+        expect(res.body.error).to.be.undefined;
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('name');
+        expect(res.body.name).to.eq('LEE JI EUN_');
         done();
       });
   });
