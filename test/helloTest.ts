@@ -22,6 +22,15 @@ describe('helloTest', () => {
       });
   });
 
+  it('서버 에러', (done) => {
+    agent.get('/api/hello/error')
+      .end((err, res) => {
+        expect(res.body.error).to.eq(ERROR_MESSAGE.SYSTEM_ERROR);
+        expect(res).to.have.status(500);
+        done();
+      });
+  });
+
   it('hello name 요청', (done) => {
     agent.get('/api/hello/LEE-JI-EUN')
       .end((err, res) => {
@@ -33,11 +42,13 @@ describe('helloTest', () => {
       });
   });
 
-  it('서버 에러', (done) => {
-    agent.get('/api/hello/error')
+  it('hello name 요청 : 잘못된 이름', (done) => {
+    agent.get('/api/hello/*')
       .end((err, res) => {
-        expect(res.body.error).to.eq(ERROR_MESSAGE.SYSTEM_ERROR);
-        expect(res).to.have.status(500);
+        console.log(res.status)
+        console.log(res.body)
+        expect(res.body.error).to.eq(ERROR_MESSAGE.WRONG_USER_NAME);
+        expect(res).to.have.status(406);
         done();
       });
   });
