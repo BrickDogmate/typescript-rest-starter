@@ -1,0 +1,46 @@
+dist
+doc
+
+.nyc_output
+coverage
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+npm-debug.log*
+
+pids
+logs
+results
+tmp
+
+# API keys and secrets
+.env*
+
+# Dependency directory
+node_modules
+bower_components
+
+# Editors
+.idea
+.vscode
+*.iml
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# 테스트 커버리지
+coverage
+build
+
+# 테스트 스냅샷 파일
+__snapshots__
+*.snap
+tmpTest.ts
