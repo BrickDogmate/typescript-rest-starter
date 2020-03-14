@@ -1,8 +1,13 @@
 {
   "name": "typescript-rest-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Express/TypeScript REST API server",
+  "main": "server.js",
+  "keywords": [
+    "express",
+    "typescript",
+    "rest"
+  ],
   "scripts": {
     "dev": "NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec 'ts-node' -r dotenv/config src/server.ts",
     "serve": "NODE_ENV=production node -r dotenv/config dist/server.js",
