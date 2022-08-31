@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "helmet": "^3.21.3",
     "lodash": "^4.17.21",
-    "moment-timezone": "^0.5.28",
+    "moment-timezone": "^0.5.35",
     "mysql2": "^2.1.0",
     "typeorm": "^0.2.25",
     "typescript-ioc": "^3.2.1",
